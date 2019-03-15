@@ -6,6 +6,6 @@ Clonar Carpeta a PC:
 - Clone
 - Clone a Repo
 - Clone with URL	
-- Pegar URL
+- Pegar URL (El URL se encuentra en el proyecto en github en el botón Clone or Download)
 - Clone The Repo!
 - Open Now.
