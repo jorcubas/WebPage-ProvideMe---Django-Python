@@ -8,4 +8,4 @@ Clonar Carpeta a PC:
 - Clone with URL	
 - Pegar URL (El URL se encuentra en el proyecto en github en el botón Clone or Download)
 - Clone The Repo!
-- Open Now. (Utilizar Versión No Comercial de GitKraken)
+- Open Now. (Utilizar Versión No Comercial de GitKraken	)
