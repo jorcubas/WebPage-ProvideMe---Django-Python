@@ -1,0 +1,11 @@
+Guía de Uso GitKrarken
+
+Clonar Carpeta a PC:
+
+- Open a Project
+- Clone
+- Clone a Repo
+- Clone with URL	
+- Pegar URL
+- Clone The Repo!
+- Open Now.
