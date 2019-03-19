@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from proveedor import views as proveedor_views
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views #import que django da por default para login/logout
 from usuario import views as view_usuario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',proveedor_views.home,name='home'),
     path('registro/', view_usuario.registro, name='registro'),
-    path('login/', auth_views.LoginView.as_view(template_name='usuario/login.html'), name='login'),
     path('', include('proveedor.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='usuario/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='usuario/logout.html'), name='logout'),
+    path('perfil/', view_usuario.perfil, name='perfil'),
 ]
