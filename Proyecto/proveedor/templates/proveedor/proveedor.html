@@ -1,0 +1,16 @@
+{% extends "proveedor/base.html" %}
+{% block content %}
+    {% for provee in proveedor %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ provee.nombre }}</a>
+            </div>
+            <h2><a class="article-title" href="#">{{ provee.nombre }}</a></h2>
+              <p class="article-content">Provincia: {{ provee.provincia.nombre }}</p>
+            <p class="article-content">Telefono: {{ provee.telefono }}</p>
+              <p class="article-content">Correo Electrónico: {{ provee.correo }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
