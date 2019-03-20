@@ -40,8 +40,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+            <state relative-caret-position="174">
+              <caret line="88" column="80" lean-forward="true" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proveedor/static/proveedor/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1411">
+              <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -104,8 +113,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
@@ -132,6 +142,13 @@
               <item name="Proyectov2" type="462c0819:PsiDirectoryNode" />
               <item name="proveedor" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyectov2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyectov2" type="462c0819:PsiDirectoryNode" />
+              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Proyectov2" type="b2602c69:ProjectViewProjectNode" />
@@ -219,21 +236,21 @@
       <option name="presentableId" value="Default" />
       <updated>1552978916578</updated>
       <workItem from="1553018150525" duration="14288000" />
-      <workItem from="1553116108074" duration="2266000" />
+      <workItem from="1553116108074" duration="2936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16554000" />
+    <option name="totallyTimeSpent" value="17224000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25658807" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12416107" />
       <window_info id="Structure" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3323782" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -262,13 +279,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proveedor/static/proveedor/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1826">
-          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -409,10 +419,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/static/proveedor/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+        <state relative-caret-position="174">
+          <caret line="88" column="80" lean-forward="true" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
         </state>
       </provider>
     </entry>
