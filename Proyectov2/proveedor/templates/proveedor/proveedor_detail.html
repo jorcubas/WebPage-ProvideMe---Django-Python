@@ -1,0 +1,14 @@
+{% extends "proveedor/base.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.nombre }}</a>
+        </div>
+        <h2 class="article-title">{{ object.nombre }}</h2>
+          <p class="article-content">Provincia: {{ object.provincia.nombre }}</p>
+        <p class="article-content">Telefono: {{ object.telefono }}</p>
+          <p class="article-content">Correo Electrónico: {{ object.correo }}</p>
+      </div>
+    </article>
+{% endblock content %}

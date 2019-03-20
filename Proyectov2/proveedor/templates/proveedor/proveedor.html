@@ -6,7 +6,7 @@
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ provee.nombre }}</a>
             </div>
-            <h2><a class="article-title" href="#">{{ provee.nombre }}</a></h2>
+            <h2><a class="article-title" href="{% url 'proveedor-detail' provee.id %}">{{ provee.nombre }}</a></h2>
               <p class="article-content">Provincia: {{ provee.provincia.nombre }}</p>
             <p class="article-content">Telefono: {{ provee.telefono }}</p>
               <p class="article-content">Correo Electrónico: {{ provee.correo }}</p>
