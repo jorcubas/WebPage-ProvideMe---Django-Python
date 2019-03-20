@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class provincia(models.Model):
     nombre = models.CharField(max_length=15)
@@ -11,3 +12,6 @@ class proveedor(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('proveedor-detail', kwargs={'pk':self.pk})

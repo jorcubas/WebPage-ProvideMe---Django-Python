@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import proveedor
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 @login_required
 def home(request):
@@ -19,3 +19,7 @@ class proveedorListView(ListView):
 
 class proveedorDetailView(DetailView):
     model = proveedor
+
+class proveedorCreateView(CreateView):
+    model = proveedor
+    fields=['nombre', 'correo', 'telefono', 'provincia']
