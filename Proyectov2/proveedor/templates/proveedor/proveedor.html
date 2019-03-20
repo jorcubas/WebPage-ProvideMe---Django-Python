@@ -1,10 +1,21 @@
 {% extends "proveedor/base.html" %}
+
 {% block content %}
+
+    <div class="container" style="padding-bottom: 10px">
+     <form method="GET" action="{% url 'search' %}">
+        <input name="q" value="{{ request.GET.q }}" placeholder="search..">
+        <button class="btn btn-success" type="submit">
+            Search
+        </button>
+    </form>
+    </div>
+
     {% for provee in proveedor %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ provee.nombre }}</a>
+              <a class="mr-2" href="{% url 'proveedor-detail' provee.id %}">{{ provee.nombre }}</a>
             </div>
             <h2><a class="article-title" href="{% url 'proveedor-detail' provee.id %}">{{ provee.nombre }}</a></h2>
               <p class="article-content">Provincia: {{ provee.provincia.nombre }}</p>
