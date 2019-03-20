@@ -21,6 +21,7 @@ class proveedorListView(ListView):
     template_name = 'proveedor/proveedor.html'
     context_object_name = 'proveedor'
     ordering = ['-nombre']
+    paginate_by = 10
 
 class ProvDetailView(DetailView):
     model = proveedor
@@ -36,10 +37,7 @@ def search(request):
         results = proveedor.objects.filter(Q(nombre__icontains=query))
     else:
         results = proveedor.objects.filter(status='published')
-    pages = pagination(request, result, num=1)
-
     context = {
-        'items':pages[0],
-        'page_range': pages[1],
+        'proveedor': results
     }
     return render(request, template, context)
