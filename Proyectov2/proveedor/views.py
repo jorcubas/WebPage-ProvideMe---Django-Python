@@ -36,7 +36,7 @@ def search(request):
     if query:
         results = proveedor.objects.filter(Q(nombre__icontains=query))
     else:
-        results = proveedor.objects.filter(status='published')
+        results = proveedor.objects.all()
     context = {
         'proveedor': results
     }
