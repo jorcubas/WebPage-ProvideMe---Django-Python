@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import proveedor
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView
+from django.db.models import Q
 
 @login_required
 def home(request):
@@ -23,3 +24,16 @@ class proveedorDetailView(DetailView):
 class proveedorCreateView(CreateView):
     model = proveedor
     fields=['nombre', 'correo', 'telefono', 'provincia']
+
+
+def search(request):
+    template = 'proveedor/proveedor.html'
+    query = request.GET.get('q')
+    if query:
+        results = proveedor.objects.filter(Q(nombre__icontains=query))
+    else:
+        results = proveedor.objects.all()
+    context = {
+        'proveedor': results
+    }
+    return render(request, template, context)
