@@ -1,13 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import (
-    ListView,
-    DetailView,
-    CreateView
-)
 from .models import proveedor
-from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView
+from django.db.models import Q
 
 @login_required
 def home(request):
@@ -21,14 +16,15 @@ class proveedorListView(ListView):
     template_name = 'proveedor/proveedor.html'
     context_object_name = 'proveedor'
     ordering = ['-nombre']
-    paginate_by = 10
 
-class ProvDetailView(DetailView):
+
+class proveedorDetailView(DetailView):
     model = proveedor
 
-class ProvCreateView(CreateView):
+class proveedorCreateView(CreateView):
     model = proveedor
-    fields = ['nombre', 'correo', 'telefono', 'provincia']
+    fields=['nombre', 'correo', 'telefono', 'provincia']
+
 
 def search(request):
     template = 'proveedor/proveedor.html'

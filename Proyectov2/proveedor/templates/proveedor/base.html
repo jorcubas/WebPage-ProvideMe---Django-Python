@@ -18,14 +18,14 @@
 
 </head>
 
-<body>
+<body style="min-width: 600px; min-height: 800px" >
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
                 {% if user.is_authenticated %}
                     <a class="navbar-brand mr-4" href="/">ProvideMe</a>
                 {% else %}
-                    <a class="navbar-brand mr-4" href="/">ProvideMe</a>
+                    <a class="navbar-brand mr-4" href="#">ProvideMe</a>
                 {% endif %}
                 <!--<a class="navbar-brand mr-4" href="/">ProvideMe</a>-->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,8 +85,8 @@
         </div>
     </main>
 
-     <footer class="bg-steel">
-    <img src="http://i63.tinypic.com/2qn6ooi.jpg" border="0" alt="Logo ACISLHA">
+    <footer class="bg-steel">
+        <img src="http://i63.tinypic.com/2qn6ooi.jpg" border="0" alt="Logo ACISLHA">
     </footer>
 
     <!-- Optional JavaScript -->
