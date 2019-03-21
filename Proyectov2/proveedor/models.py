@@ -12,7 +12,7 @@ class proveedor(models.Model):
     provincia = models.ForeignKey(provincia, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombre
+        return self.provincia.nombre
 
     def get_absolute_url(self):
         return reverse('proveedor-detail', kwargs={'pk':self.pk})
