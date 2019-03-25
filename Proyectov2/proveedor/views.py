@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import proveedor,provincia
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 from django.db.models import Q
+from django.http import HttpResponse
 
 
 @login_required
@@ -12,11 +14,12 @@ def home(request):
     }
     return render(request, 'proveedor/proveedor.html', context)
 
-class proveedorListView(ListView):
+class proveedorListView(LoginRequiredMixin, ListView):
     model = proveedor
     template_name = 'proveedor/proveedor.html'
     context_object_name = 'proveedor'
     ordering = ['-nombre']
+
 
 
 class proveedorDetailView(DetailView):
@@ -36,5 +39,12 @@ def search(request):
         results = proveedor.objects.all()
     context = {
         'proveedor': results
+    }
+    return render(request, template, context)
+
+def reportes(request, id=None):
+    template = 'proveedor/reporteProveedor.html'
+    context = {
+        'proveedor' : proveedor.objects.get(pk=id)
     }
     return render(request, template, context)

@@ -11,4 +11,20 @@
           <p class="article-content">Correo Electrónico: {{ object.correo }}</p>
       </div>
     </article>
+    <div class="row container ">
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="{% url 'reportes' id=object.id %}">
+                <button class="btn btn-warning" type="submit">
+                    Reportar Proveedor
+                </button>
+            </form>
+        </div>
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="{% url 'reportes' id=object.id %}">
+                <button class="btn btn-info" type="submit">
+                    Agregar a Favoritos!
+                </button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}

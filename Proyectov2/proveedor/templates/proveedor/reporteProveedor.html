@@ -1,0 +1,29 @@
+{% extends "proveedor/base.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+          <h2>¿Seguro Que Quiere Reportar al siguiente Proveedor?</h2>
+          <h2>  {{proveedor.nombre}} </h2>
+      </div>
+    </article>
+    <div class="row container ">
+
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="{% url 'proveedor-proveedor' %}">
+                <button class="btn btn-danger" type="submit">
+                    No
+                </button>
+            </form>
+        </div>
+
+
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="#">
+                <button class="btn btn-success" type="submit">
+                    Si
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
