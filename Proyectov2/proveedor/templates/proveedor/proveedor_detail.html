@@ -3,28 +3,38 @@
     <article class="media content-section">
       <div class="media-body">
         <div class="article-metadata">
-          <a class="mr-2" href="#">{{ object.nombre }}</a>
+          <a class="mr-2" href="#">{{proveedor.nombre}}</a>
         </div>
-        <h2 class="article-title">{{ object.nombre }}</h2>
-          <p class="article-content">Provincia: {{ object.provincia.nombre }}</p>
-        <p class="article-content">Telefono: {{ object.telefono }}</p>
-          <p class="article-content">Correo Electrónico: {{ object.correo }}</p>
+        <h2 class="article-title">{{proveedor.nombre}}</h2>
+          <p class="article-content">Provincia: {{ proveedor.provincia.nombre }}</p>
+        <p class="article-content">Telefono: {{ proveedor.telefono }}</p>
+          <p class="article-content">Correo Electrónico: {{ proveedor.correo }}</p>
       </div>
     </article>
     <div class="row container ">
         <div class="class-md-8 content-section" >
-            <form method="GET" action="{% url 'reportes' id=object.id %}">
-                <button class="btn btn-warning" type="submit">
-                    Reportar Proveedor
-                </button>
-            </form>
+            {% if reporteProveedor == "holi" %}
+               <form method="GET" action="{% url 'reportes' id=proveedor.id %}">
+                    <button class="btn btn-warning" type="submit">
+                        Reportar Proveedor
+                    </button>
+                </form>
+            {% else %}
+                <form method="GET" action="#">
+                    <button class="btn btn-indo" type="submit">
+                        Proveedor Reportado
+                    </button>
+                </form>
+            {% endif %}
         </div>
         <div class="class-md-8 content-section" >
-            <form method="GET" action="{% url 'reportes' id=object.id %}">
+            <form method="GET" action="{% url 'reportes' id=proveedor.id %}">
                 <button class="btn btn-info" type="submit">
                     Agregar a Favoritos!
                 </button>
             </form>
         </div>
     </div>
+
 {% endblock content %}
+

@@ -2,17 +2,19 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import (
     proveedorListView,
-    proveedorDetailView,
+    proveedorView,
     proveedorCreateView,
     search,
-    reportes
+    reportes,
+    reportadoProveedor
 )
 from . import views
 
 urlpatterns = [
     path('', proveedorListView.as_view(), name = 'proveedor-proveedor'),
-    path('proveedor/<int:pk>/', proveedorDetailView.as_view(), name = 'proveedor-detail'),
+    path('proveedor/<id>/', proveedorView, name = 'proveedor-detail'),
     path('proveedor/new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('results/', search, name="search"),
-    path('proveedor/reporteProveedor/<id>', reportes, name = 'reportes'),
+    path('proveedor/reporteProveedor/<id>/', reportes, name = 'reportes'),
+    path('proveedor/reportadoProveedor/<id>/', reportadoProveedor, name = 'reportadoProveedor'),
 ]
