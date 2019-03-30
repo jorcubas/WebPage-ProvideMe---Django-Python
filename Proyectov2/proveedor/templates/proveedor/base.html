@@ -70,6 +70,19 @@
                 <div class="col-md-4">
                     {% if user.is_authenticated %}
                         <div class="content-section">
+                            <h3>Orden</h3>
+                            <p class='text-muted'>Ordenar Proveedores Por
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">
+                                  <a href="{% url 'proveedor-proveedor-orden' '1' %}">Nombre</a>
+                                </li>
+                                <li class="list-group-item list-group-item-light">
+                                  <a href="#">Puntaje</a>
+                                </li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="content-section">
                             <h3>Filtro</h3>
                             <p class='text-muted'>Filtros de Búsqueda
                             <ul class="list-group">
@@ -81,7 +94,6 @@
                             </p>
                         </div>
                     {% endif %}
-                </div>
             {% endif %}
         </div>
     </main>

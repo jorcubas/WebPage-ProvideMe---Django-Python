@@ -8,12 +8,14 @@ from .views import (
     reportes,
     reportadoProveedor,
     agregadoFavorito,
-    eliminadoFavorito
+    eliminadoFavorito,
+    home
 )
 from . import views
 
 urlpatterns = [
-    path('', proveedorListView.as_view(), name = 'proveedor-proveedor'),
+    path('', home, name = 'proveedor-proveedor'),
+    path('/home/<id>/', home, name = 'proveedor-proveedor-orden'),
     path('proveedor/<id>/', proveedorView, name = 'proveedor-detail'),
     path('proveedor/new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('results/', search, name="search"),

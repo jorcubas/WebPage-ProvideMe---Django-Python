@@ -9,9 +9,13 @@ from django.shortcuts import get_object_or_404
 
 
 @login_required
-def home(request):
+def home(request, id= None):
+    if id == '1':
+        ordering = proveedor.objects.select_related('provincia').order_by('nombre')
+    else:
+        ordering = proveedor.objects.select_related('provincia')
     context = {
-        'proveedor' : proveedor.objects.select_related('provincia')
+        'proveedor' : ordering
     }
     return render(request, 'proveedor/proveedor.html', context)
 
@@ -19,7 +23,10 @@ class proveedorListView(LoginRequiredMixin, ListView):
         model = proveedor
         template_name = 'proveedor/proveedor.html'
         context_object_name = 'proveedor'
-        ordering = ['-nombre']
+        if id == 1:
+            ordering = ['-nombre']
+        else:
+            ordering = ['nombre']
 
 
 #class proveedorDetailView(DetailView):
