@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51546318-1115-460b-8c76-794029446354" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/agregado_Favorito.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/eliminado_Favorito.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proveedor/templates/proveedor/reporteProveedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/reporteProveedor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/views.py" afterDir="false" />
     </list>
@@ -21,43 +22,44 @@
     <session id="-1003892693">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="2" />
-          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="3" />
-          <entry key="html" value="57" />
-          <entry key="py" value="114" />
+          <entry key="html" value="60" />
+          <entry key="py" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="HTML" value="57" />
-          <entry key="Python" value="114" />
+          <entry key="HTML" value="60" />
+          <entry key="Python" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="3185" />
-          <entry key="py" value="6514" />
+          <entry key="html" value="3367" />
+          <entry key="py" value="7150" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="3185" />
-          <entry key="Python" value="6514" />
+          <entry key="HTML" value="3367" />
+          <entry key="Python" value="7150" />
         </counts>
       </usages-collector>
     </session>
@@ -67,23 +69,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="543">
+              <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/reporteProveedor.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html">
+        <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/eliminado_Favorito.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
               <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
@@ -92,24 +85,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Proyectov2/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proveedor/urls.py">
+        <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/agregado_Favorito.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="220">
+              <caret line="10" column="42" lean-forward="true" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor.html">
+        <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            <state relative-caret-position="330">
+              <caret line="15" column="10" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proveedor/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proveedor/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="433">
+              <caret line="30" selection-start-line="30" selection-end-line="35" selection-end-column="36" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -139,22 +139,31 @@
         <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proveedor/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="736">
+              <caret line="106" column="45" lean-forward="true" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+                <marker date="1553969214021" expanded="true" signature="873:879" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proveedor/views.py">
+        <entry file="file://$PROJECT_DIR$/proveedor/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="110">
+              <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <marker date="1553895355223" expanded="true" signature="845:851" ph="..." />
-                <marker date="1553895355223" expanded="true" signature="1350:1687" ph="..." />
-                <marker date="1553895355223" expanded="true" signature="1725:1730" ph="..." />
-                <marker date="1553895355223" expanded="true" signature="1827:1832" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,6 +190,7 @@
       <find>else</find>
       <find>usuario</find>
       <find>reporte</find>
+      <find>favo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,10 +214,12 @@
         <option value="$PROJECT_DIR$/proveedor/forms.py" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/base.html" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor.html" />
-        <option value="$PROJECT_DIR$/proveedor/admin.py" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/reporteProveedor.html" />
-        <option value="$PROJECT_DIR$/proveedor/models.py" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html" />
+        <option value="$PROJECT_DIR$/proveedor/templates/proveedor/agregado_Favorito.html" />
+        <option value="$PROJECT_DIR$/proveedor/models.py" />
+        <option value="$PROJECT_DIR$/proveedor/admin.py" />
+        <option value="$PROJECT_DIR$/proveedor/templates/proveedor/eliminado_Favorito.html" />
         <option value="$PROJECT_DIR$/proveedor/urls.py" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html" />
         <option value="$PROJECT_DIR$/proveedor/views.py" />
@@ -327,9 +339,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.13825503" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14026846" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -416,10 +429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <marker date="1553209628810" expanded="true" signature="109:114" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -470,47 +479,13 @@
     <entry file="file://$PROJECT_DIR$/usuario/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Proyectov2/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/base.html">
+    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="73" column="69" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="968">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -521,38 +496,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor.html">
+    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        <state relative-caret-position="330">
+          <caret line="15" column="10" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1606">
+          <caret line="73" column="69" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/agregado_Favorito.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="42" lean-forward="true" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="30" selection-start-line="30" selection-end-line="35" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="543">
+          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/eliminado_Favorito.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proveedor/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        <state relative-caret-position="736">
+          <caret line="106" column="45" lean-forward="true" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <marker date="1553895355223" expanded="true" signature="845:851" ph="..." />
-            <marker date="1553895355223" expanded="true" signature="1350:1687" ph="..." />
-            <marker date="1553895355223" expanded="true" signature="1725:1730" ph="..." />
-            <marker date="1553895355223" expanded="true" signature="1827:1832" ph="..." />
+            <marker date="1553969214021" expanded="true" signature="873:879" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>

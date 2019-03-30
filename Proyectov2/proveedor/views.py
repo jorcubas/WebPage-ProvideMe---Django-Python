@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import proveedor,provincia, reporteProveedor, User
+from .models import proveedor,provincia, reporteProveedor, User, agregadoFavoritosProveedor
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
@@ -30,20 +30,20 @@ def proveedorView(request, id = None):
     try:
         reporteCheck = reporteProveedor.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
     except reporteProveedor.DoesNotExist:
-        reporteCheck = None
+        reporteCheck = 'sinReportar'
 
-    if(reporteCheck == None):
-        context = {
-            'proveedor' : proveedor.objects.get(id = id),
-            'reporteProveedor': 'holi',
-            'usuario': User.objects.get(id = current_user.id),
-        }
-    else:
-        context = {
-            'proveedor' : proveedor.objects.get(id = id),
-            'reporteProveedor': reporteProveedor.objects.get(Proveedor__id = id, Usuario__id = current_user.id),
-            'usuario': User.objects.get(id = current_user.id),
-        }
+    try:
+        reporteCheckFavorito = agregadoFavoritosProveedor.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
+    except agregadoFavoritosProveedor.DoesNotExist:
+        reporteCheckFavorito = 'sinFavorito'
+
+    context = {
+        'proveedor' : proveedor.objects.get(id = id),
+        'reporteProveedor': reporteCheck,
+        'usuario': User.objects.get(id = current_user.id),
+        'agregadoFavorito': reporteCheckFavorito,
+    }
+
     return render(request, 'proveedor/proveedor_detail.html', context)
 
 class proveedorCreateView(CreateView):
@@ -81,4 +81,31 @@ def reportadoProveedor(request, id=None):
         'proveedor' : proveedor.objects.get(pk=id)
     }
     return render(request, template, context)
+
+def agregadoFavorito(request, id = None):
+    template = 'proveedor/agregado_Favorito.html'
+    proveedorObj = proveedor.objects.get(id=id)
+    current_user = request.user
+    usuarioObj = User.objects.get(id=current_user.id)
+    agregadoaFavorito = agregadoFavoritosProveedor(Proveedor=proveedorObj, Usuario=usuarioObj)
+    agregadoaFavorito.save()
+    context = {
+        'proveedor' : proveedor.objects.get(pk=id)
+    }
+    return render(request, template, context)
+
+def eliminadoFavorito(request, id = None):
+    template = 'proveedor/eliminado_Favorito.html'
+    proveedorObj = proveedor.objects.get(id=id)
+    current_user = request.user
+    usuarioObj = User.objects.get(id=current_user.id)
+    agregadoaFavorito = agregadoFavoritosProveedor.objects.get(Proveedor=proveedorObj, Usuario=usuarioObj)
+    agregadoaFavorito.delete()
+    context = {
+        'proveedor' : proveedor.objects.get(pk=id)
+    }
+    return render(request, template, context)
+
+
+
 

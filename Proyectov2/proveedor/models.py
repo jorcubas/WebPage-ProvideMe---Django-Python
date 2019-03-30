@@ -27,3 +27,10 @@ class reporteProveedor(models.Model):
 
     def __str__(self):
         return self.Proveedor.nombre
+
+class agregadoFavoritosProveedor(models.Model):
+    Proveedor = models.ForeignKey(proveedor, on_delete = models.PROTECT)
+    Usuario = models.ForeignKey(User, on_delete = models.PROTECT)
+
+    def __str__(self):
+        return self.Usuario.username

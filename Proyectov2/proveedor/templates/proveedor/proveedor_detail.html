@@ -13,26 +13,33 @@
     </article>
     <div class="row container ">
         <div class="class-md-8 content-section" >
-            {% if reporteProveedor == "holi" %}
+            {% if reporteProveedor == "sinReportar" %}
                <form method="GET" action="{% url 'reportes' id=proveedor.id %}">
                     <button class="btn btn-warning" type="submit">
                         Reportar Proveedor
                     </button>
                 </form>
             {% else %}
-                <form method="GET" action="#">
+
                     <button class="btn btn-indo" type="submit">
                         Proveedor Reportado
                     </button>
-                </form>
             {% endif %}
         </div>
         <div class="class-md-8 content-section" >
-            <form method="GET" action="{% url 'reportes' id=proveedor.id %}">
-                <button class="btn btn-info" type="submit">
-                    Agregar a Favoritos!
-                </button>
-            </form>
+            {% if agregadoFavorito == "sinFavorito" %}
+                <form method="GET" action="{% url 'agregadoFavorito' id=proveedor.id %}">
+                    <button class="btn btn-primary" type="submit">
+                        Agregar a Favoritos!
+                    </button>
+                </form>
+            {% else %}
+                <form method="GET" action="{% url 'eliminadoFavorito' id=proveedor.id %}">
+                    <button class="btn btn-primary" type="submit">
+                        Quitar de Favoritos!
+                    </button>
+                </form>
+            {% endif %}
         </div>
     </div>
 

@@ -6,7 +6,9 @@ from .views import (
     proveedorCreateView,
     search,
     reportes,
-    reportadoProveedor
+    reportadoProveedor,
+    agregadoFavorito,
+    eliminadoFavorito
 )
 from . import views
 
@@ -17,4 +19,6 @@ urlpatterns = [
     path('results/', search, name="search"),
     path('proveedor/reporteProveedor/<id>/', reportes, name = 'reportes'),
     path('proveedor/reportadoProveedor/<id>/', reportadoProveedor, name = 'reportadoProveedor'),
+    path('proveedor/agregadoFavorito/<id>/', agregadoFavorito, name = 'agregadoFavorito'),
+    path('proveedor/eliminadoFavorito/<id>/', eliminadoFavorito, name = 'eliminadoFavorito'),
 ]
