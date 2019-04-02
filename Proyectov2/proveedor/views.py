@@ -70,6 +70,35 @@ def search(request):
     }
     return render(request, template, context)
 
+def filtro(request,id):
+    template = 'proveedor/proveedor.html'
+    #query = request.GET.get('q')
+    #if query:
+    if id == '1':
+            results = proveedor.objects.all() # Muestra todos los proveedores por el momento, dado que no hay puntos
+    elif id == '2':
+            results = proveedor.objects.all() # Muestra todos los proveedores por el momento, dado que no hay puntos
+    elif id == '3':
+            results = proveedor.objects.all() # Muestra todos los proveedores por el momento, dado que no hay puntos
+    elif id == '4':
+            results = proveedor.objects.filter(provincia__id = 1)
+    elif id == '5':
+            results = proveedor.objects.filter(Q(provincia_id = 3))
+    elif id == '6':
+            results = proveedor.objects.filter(Q(provincia_id = 2))
+    elif id == '7':
+            results = proveedor.objects.filter(Q(provincia_id = 4))
+    elif id == '8':
+            results = proveedor.objects.filter(Q(provincia_id = 5))
+    elif id == '9':
+            results = proveedor.objects.filter(Q(provincia_id = 6))
+    elif id == '10':
+            results = proveedor.objects.filter(Q(provincia_id = 7))
+    context = {
+        'proveedor': results
+    }
+    return render(request, template, context)
+
 def reportes(request, id=None):
     template = 'proveedor/reporteProveedor.html'
     context = {

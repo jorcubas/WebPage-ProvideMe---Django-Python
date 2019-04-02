@@ -5,6 +5,7 @@ from .views import (
     proveedorView,
     proveedorCreateView,
     search,
+    filtro,
     reportes,
     reportadoProveedor,
     agregadoFavorito,
@@ -16,6 +17,7 @@ from . import views
 urlpatterns = [
     path('', home, name = 'proveedor-proveedor'),
     path('/home/<id>/', home, name = 'proveedor-proveedor-orden'),
+    path('home/filtro/<id>/', filtro, name = 'proveedor-proveedor-filtro'),
     path('proveedor/<id>/', proveedorView, name = 'proveedor-detail'),
     path('proveedor/new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('results/', search, name="search"),
