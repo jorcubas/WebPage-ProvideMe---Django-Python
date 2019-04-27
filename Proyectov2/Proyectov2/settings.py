@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Proyecto2',
         'USER': 'postgres',
-        'PASSWORD': 'cacada',
+        'PASSWORD': 'Hola12345',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -132,4 +132,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'proveedor-proveedor'
 LOGIN_URL = 'login'
+
+#Informacion Correo
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'proveedoresSHO@gmail.com'
+EMAIL_HOST_PASSWORD = 'proveedorescr'
+EMAIL_USE_TLS = True
 

@@ -10,13 +10,15 @@ from .views import (
     reportadoProveedor,
     agregadoFavorito,
     eliminadoFavorito,
-    home
+    home,
+    favoritosUsuario,
+    envioCorreo
 )
 from . import views
 
 urlpatterns = [
     path('', home, name = 'proveedor-proveedor'),
-    path('/home/<id>/', home, name = 'proveedor-proveedor-orden'),
+    path('home/<id>/', home, name = 'proveedor-proveedor-orden'),
     path('home/filtro/<id>/', filtro, name = 'proveedor-proveedor-filtro'),
     path('proveedor/<id>/', proveedorView, name = 'proveedor-detail'),
     path('proveedor/new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
@@ -25,4 +27,6 @@ urlpatterns = [
     path('proveedor/reportadoProveedor/<id>/', reportadoProveedor, name = 'reportadoProveedor'),
     path('proveedor/agregadoFavorito/<id>/', agregadoFavorito, name = 'agregadoFavorito'),
     path('proveedor/eliminadoFavorito/<id>/', eliminadoFavorito, name = 'eliminadoFavorito'),
+    path('proveedor/envioCorreo/<id>/', envioCorreo, name = 'envioCorreo'),
+    path('favoritos/', favoritosUsuario, name = 'favoritosUsuario'),
 ]

@@ -1,0 +1,17 @@
+{% extends "proveedor/base.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+          <h2>Correo Enviado Con Éxito!</h2>
+      </div>
+    </article>
+    <div class="row container ">
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="{% url 'proveedor-detail' proveedor.id%}">
+                <button class="btn btn-success" type="submit">
+                    Regresar a Proveedor
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

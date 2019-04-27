@@ -6,16 +6,19 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
 
 
 @login_required
 def home(request, id= None):
+    current_user = request.user
     if id == '1':
         ordering = proveedor.objects.select_related('provincia').order_by('nombre')
     else:
         ordering = proveedor.objects.select_related('provincia')
     context = {
-        'proveedor' : ordering
+        'proveedor' : ordering,
+        'usuario': User.objects.get(id = current_user.id),
     }
     return render(request, 'proveedor/proveedor.html', context)
 
@@ -142,6 +145,34 @@ def eliminadoFavorito(request, id = None):
     }
     return render(request, template, context)
 
+def favoritosUsuario(request):
+    template = 'proveedor/favoritosUsuario.html'
+    current_user = request.user
+    listaProveedores = agregadoFavoritosProveedor.objects.get(Usuario__id = current_user.id)
+    listaFavoritos = listaProveedores.Proveedor
+    context = {
+        'proveedor' : listaFavoritos,
+    }
+    return render(request, template, context)
+
+def envioCorreo(request, id = None):
+    template = 'proveedor/envioCorreo.html'
+    nombre_proveedor = proveedor.objects.get(pk=id)
+    current_user = request.user
+    usuarioObj = User.objects.get(id=current_user.id)
+    emailUser = usuarioObj.email
+    send_mail('Información de Contacto de ' + nombre_proveedor.nombre + ": ",
+              'A Continuación Se Presenta la Información de Contacto de ' + nombre_proveedor.nombre + ": \n" + '\n' +
+              'e-mail: ' + nombre_proveedor.correo + '\n' + '\n' +
+              'telefono: ' + str(nombre_proveedor.telefono) + '\n' + '\n' +
+              'provincia: ' + nombre_proveedor.provincia.nombre,
+              'proveedoressho@gmail.com',
+              [emailUser],
+              fail_silently=False)
+    context = {
+        'proveedor' : proveedor.objects.get(pk=id)
+    }
+    return render(request, template, context)
 
 
 

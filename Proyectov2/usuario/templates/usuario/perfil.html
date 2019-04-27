@@ -21,5 +21,10 @@
                 <button class="btn btn-outline-info" type="submit">Actualizar</button>
             </div>
         </form>
+        <form method="GET" action="{% url 'password_reset' %}">
+            <button class="btn btn-link" type="submit">
+                Cambiar Contraseña
+            </button>
+        </form>
     </div>
 {% endblock content %}

@@ -41,6 +41,13 @@
                 </form>
             {% endif %}
         </div>
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="{% url 'envioCorreo' id=proveedor.id %}">
+                <button class="btn btn-info" type="submit">
+                    Recibir Contacto Al Correo
+                </button>
+            </form>
+        </div>
     </div>
 
 {% endblock content %}
