@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import proveedor, provincia, reporteProveedor, User, agregadoFavoritosProveedor, Comentario, Rating, ratings_prov
+from .models import proveedor,provincia, reporteProveedor, User, agregadoFavoritosProveedor,movimientos_pagina
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
@@ -10,6 +11,24 @@ from django.core.mail import send_mail
 from .forms import FormComment
 from django import forms
 import datetime
+from datetime import datetime,timedelta
+
+
+
+@login_required
+def firstLogin(request, id= None):
+    current_user = request.user
+    ordering = proveedor.objects.select_related('provincia')
+    context = {
+        'proveedor' : ordering,
+        'usuario': User.objects.get(id = current_user.id),
+    }
+    usuarioObj = User.objects.get(id=current_user.id)
+    guardadoMovimiento = movimientos_pagina(UsuarioMovimiento = usuarioObj, TipoMovimiento = 'Ingreso Pagina',
+                                            FechaMovimiento = datetime.today(), HoraMovimiento = datetime.now())
+    guardadoMovimiento.save()
+    return render(request, 'proveedor/proveedor.html', context)
+
 
 @login_required
 def home(request, id= None):
@@ -38,7 +57,12 @@ class proveedorListView(LoginRequiredMixin, ListView):
 #class proveedorDetailView(DetailView):
 #    model = proveedor
 
-def proveedorView(request, id):
+class proveedorCreateView(CreateView):
+    model = proveedor
+    fields=['nombre', 'correo', 'telefono', 'provincia']
+
+
+def proveedorVista(request, id = None):
     current_user = request.user
     try:
         reporteCheck = reporteProveedor.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
@@ -57,9 +81,6 @@ def proveedorView(request, id):
 
     return render(request, 'proveedor/proveedor_detail.html', context)
 
-class proveedorCreateView(CreateView):
-    model = proveedor
-    fields=['nombre', 'correo', 'telefono', 'provincia']
 
 
 def search(request):
@@ -176,6 +197,9 @@ def envioCorreo(request, id = None):
     return render(request, template, context)
 
 def calificarProveedor(request, id = None):
+def trafico(request):
+    template = 'proveedor/trafico.html'
+    return render(request, template)
 
     if request.method == 'POST':
         form = FormComment(request.POST)
@@ -184,6 +208,24 @@ def calificarProveedor(request, id = None):
         'form': form,
         'proveedor' : id
     }
+def envíoTraficoIngresos(request):
+    last_month = datetime.today() - timedelta(days=30)
+    items = movimientos_pagina.objects.filter(FechaMovimiento__gte=last_month)
+    usuario2 = request.user
+    text = ""
+    for movimiento in items:
+        usuario = movimiento.UsuarioMovimiento.username
+        tipoMovimiento = movimiento.TipoMovimiento
+        fecha = str(movimiento.FechaMovimiento)
+        hora = str(movimiento.HoraMovimiento)
+        text += usuario + "\n" + tipoMovimiento + "\n" + fecha + "\n" + hora + "\n" + "\n" + "\n"
+    send_mail('Trafico de Ingresos a Página Web ',
+              text,
+              'proveedoressho@gmail.com',
+              [usuario2.email],
+              fail_silently=False)
+    template = 'proveedor/trafico_enviado.html'
+    return render(request, template)
 
     return render(request, 'proveedor/comentarioForm.html', context)
 
@@ -257,3 +299,7 @@ def respuesta(request, id = None):
 
 
     return render(request, 'proveedor/mensajeRespuesta.html', {'proveedor': id})
+
+
+
+

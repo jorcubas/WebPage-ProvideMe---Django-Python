@@ -60,3 +60,12 @@ class ratings_prov(models.Model):
     comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE, related_name="ratingComment")
     tipo = models.CharField(max_length=25)
     calificacion = models.IntegerField()
+
+class movimientos_pagina(models.Model):
+    UsuarioMovimiento = models.ForeignKey(User, on_delete = models.PROTECT)
+    TipoMovimiento = models.CharField(max_length=45)
+    FechaMovimiento = models.DateField()
+    HoraMovimiento = models.TimeField()
+
+    def __str__(self):
+        return self.movimentos_pagina.UsuarioMovimiento.username

@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51546318-1115-460b-8c76-794029446354" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/envioCorreo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/favoritosUsuario.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario/templates/usuario/password_reset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario/templates/usuario/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario/templates/usuario/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuario/templates/usuario/password_reset_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/trafico.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/trafico_enviado.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyectov2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyectov2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyectov2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyectov2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proveedor/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/templates/proveedor/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proveedor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/proveedor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuario/templates/usuario/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/templates/usuario/perfil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/templates/usuario/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/templates/usuario/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuario/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuario/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,16 +135,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>conten</find>
-      <find>our</find>
-      <find>provide</find>
       <find>log</find>
       <find>deatil</find>
       <find>detalle</find>
       <find>detail</find>
       <find>about</find>
       <find>our si</find>
-      <find>crear</find>
       <find>succe</find>
       <find>btn</find>
       <find>proveedor.id</find>
@@ -158,10 +150,21 @@
       <find>reporte</find>
       <find>favo</find>
       <find>filtros de</find>
-      <find>href</find>
       <find>filtro</find>
       <find>Home</find>
       <find>provee</find>
+      <find>track</find>
+      <find>url</find>
+      <find>related</find>
+      <find>href</find>
+      <find>install</find>
+      <find>provi</find>
+      <find>home</find>
+      <find>crear</find>
+      <find>view</find>
+      <find>proveedorView</find>
+      <find>login</find>
+      <find>manej</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,9 +176,7 @@
         <option value="$PROJECT_DIR$/usuario/models.py" />
         <option value="$PROJECT_DIR$/usuario/templates/usuario/registro.html" />
         <option value="$PROJECT_DIR$/usuario/templates/usuario/logout.html" />
-        <option value="$PROJECT_DIR$/usuario/templates/usuario/login.html" />
         <option value="$PROJECT_DIR$/usuario/forms.py" />
-        <option value="$PROJECT_DIR$/usuario/views.py" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/proveedor_detalle.html" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/reporteProveedor.html" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/reportadoProveedor.html" />
@@ -187,6 +188,8 @@
         <option value="$PROJECT_DIR$/usuario/templates/usuario/password_reset_done.html" />
         <option value="$PROJECT_DIR$/usuario/templates/usuario/password_reset_confirm.html" />
         <option value="$PROJECT_DIR$/usuario/templates/usuario/password_reset_complete.html" />
+        <option value="$PROJECT_DIR$/usuario/templates/usuario/perfil.html" />
+        <option value="$PROJECT_DIR$/proveedor/templates/proveedor/usuarios.html" />
         <option value="$PROJECT_DIR$/Proyectov2/urls.py" />
         <option value="$PROJECT_DIR$/usuario/templates/usuario/perfil.html" />
         <option value="$PROJECT_DIR$/proveedor/templates/proveedor/base.html" />
@@ -265,13 +268,6 @@
               <item name="Proyectov2" type="462c0819:PsiDirectoryNode" />
               <item name="usuario" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyectov2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Proyectov2" type="462c0819:PsiDirectoryNode" />
-              <item name="usuario" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="usuario" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,9 +375,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuario/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -390,13 +383,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/usuario/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuario/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proveedor/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />

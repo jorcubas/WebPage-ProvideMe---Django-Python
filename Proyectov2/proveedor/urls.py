@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import (
     proveedorListView,
-    proveedorView,
+    proveedorVista,
     proveedorCreateView,
     search,
     filtro,
@@ -16,6 +16,10 @@ from .views import (
     calificarProveedor,
     formComentario,
     respuesta
+    envioCorreo,
+    trafico,
+    firstLogin,
+    envíoTraficoIngresos
 )
 from . import views
 from django.contrib import admin
@@ -24,10 +28,12 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    path('', home, name = 'proveedor-proveedor'),
+    path('', firstLogin, name = 'proveedor-proveedor'),
     path('home/<id>/', home, name = 'proveedor-proveedor-orden'),
     path('home/filtro/<id>/', filtro, name = 'proveedor-proveedor-filtro'),
     path('proveedor/<id>/', proveedorView, name = 'proveedor-detail'),
+    path('new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
+    path('proveedor/<id>/', proveedorVista, name = 'proveedor-detail'),
     path('new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('results/', search, name="search"),
     path('proveedor/reporteProveedor/<id>/', reportes, name = 'reportes'),
@@ -38,4 +44,6 @@ urlpatterns = [
     path('favoritos/', favoritosUsuario, name = 'favoritosUsuario'),
     path('comentario/<id>/', calificarProveedor ,name='calificar-prov'),
     path('calificacion/<id>/', respuesta, name='resp')
+    path('trafico/', trafico, name = 'trafico'),
+    path('traficoEnviado/', envíoTraficoIngresos, name = 'traficoEnviado'),
 ]
