@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('proveedor', '0003_agregadofavoritosproveedor'),
+        ('proveedor', '0003_ratings_prov_comentario'),
     ]
 
     operations = [

@@ -60,62 +60,77 @@
                 </div>
                 <div class="col-md-4"></div>
                 <div class="class-md-4" style="margin: 10px">
-                    <form method="GET" action="{% url 'calificar-prov' id=proveedor.id %}">
-                    <button class="btn btn-success" type="submit">
-                        Agregar Comentario
-                    </button>
-                    </form>
+                    {% if isComentario == "sinComentario" %}
+                        <form method="GET" action="{% url 'calificar-prov' id=proveedor.id %}">
+                            <button class="btn btn-success" type="submit">
+                                Agregar Comentario
+                            </button>
+                        </form>
+                    {% else %}
+                        <button class="btn btn-indo" type="submit">
+                            Comentario Agregado
+                        </button>
+                {% endif %}
             </div>
         </div>
 
             <div class="row content-section">
 
                     {%  for comment in proveedor.comments.all %}
-                        <div class="col-md-4 content-section">
-                            <div class="col-md-12">
+                        {% if comment.approved or isSuperUser %}
+                            <div class="col-md-4 content-section">
                                 <div style="padding: 10px">
-                                <strong> Fecha de Publicación:</strong> {{ comment.fecha }}
-                                </div>
-                                <div style="padding: 10px">
-                                <strong>Usuario:</strong> {{ comment.Usuario.username }}
+                                        {% if not comment.approved %}
+                                            <form method="GET" action="{% url 'comment_approve' pk=comment.pk id=proveedor.id %}">
+                                                <button class="btn btn-success" type="submit">
+                                                    Aprobar
+                                                </button>
+                                            </form>
+                                            <form method="GET" action="{% url 'comment_remove' pk=comment.pk id=proveedor.id %}">
+                                                <button class="btn btn-success" type="submit">
+                                                    Borrar
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                <div class="col-md-12">
+                                    <div style="padding: 10px">
+                                        <strong> Fecha de Publicación:</strong> {{ comment.fecha }}
+                                    </div>
+                                    <div style="padding: 10px">
+                                        <strong>Usuario:</strong> {{ comment.Usuario.username }}
+                                    </div >
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 content-section">
-                            <div class="col-md-12">
-                                <h5 style="padding: 10px">
-                                    {{ comment.texto }}
-                                </h5>
+                            <div class="col-md-4 content-section">
+                                <div class="col-md-12">
+                                    <h5 style="padding: 10px">
+                                        {{ comment.texto }}
+                                    </h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 content-section">
-
+                            <div class="col-md-4 content-section">
                                 <h4 align="center" > Ratings</h4>
-
-                            {%  for rat in comment.ratingComment.all %}
-                                <div class="row" style="margin:0px; padding: 0px">
-                                <div class="col-md-6 content-section">
-                                    <h5 align="center"> {{ rat.tipo }} </h5>
-                                </div>
-                                <div class="col-md-6 content-section">
-                                    <h5 align="center"> {{ rat.calificacion }} </h5>
-                                </div>
-                                </div>
-                            {%  endfor %}
-
-                        </div>
-                     {%  empty %}
-                            <div class=" container">
+                                {%  for rat in comment.ratingComment.all %}
+                                    <div class="row" style="margin:0px; padding: 0px">
+                                        <div class="col-md-6 content-section">
+                                            <h5 align="center"> {{ rat.tipo }} </h5>
+                                        </div>
+                                        <div class="col-md-6 content-section">
+                                            <h5 align="center"> {{ rat.calificacion }} </h5>
+                                        </div>
+                                    </div>
+                                {%  endfor %}
+                            </div>
+                        {% endif %}
+                    {%  empty %}
+                        <div class=" container">
                             <h3 style="padding: 10px; margin: 10px;">
                                 Sin Comentarios por el momento
                             </h3>
-                            </div>
-
+                        </div>
                     {% endfor %}
-
-
             </div>
-
         </div>
     </div>
 

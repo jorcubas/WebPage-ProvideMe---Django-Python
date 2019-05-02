@@ -10,8 +10,7 @@ from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from .forms import FormComment
 from django import forms
-import datetime
-from datetime import datetime,timedelta
+from datetime import datetime,timedelta, date
 
 
 
@@ -35,6 +34,8 @@ def home(request, id= None):
     current_user = request.user
     if id == '1':
         ordering = proveedor.objects.select_related('provincia').order_by('nombre')
+    elif id == '2':
+        ordering = proveedor.objects.select_related('provincia').order_by('calificacion')
     else:
         ordering = proveedor.objects.select_related('provincia')
 
@@ -72,11 +73,18 @@ def proveedorVista(request, id = None):
         reporteCheckFavorito = agregadoFavoritosProveedor.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
     except agregadoFavoritosProveedor.DoesNotExist:
         reporteCheckFavorito = 'sinFavorito'
+    try:
+        reporteIsCommented = Comentario.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
+    except Comentario.DoesNotExist:
+        reporteIsCommented = 'sinComentario'
+    isSuperUser = current_user.is_staff and current_user.is_superuser
     context = {
         'proveedor' : proveedor.objects.get(id = id),
         'reporteProveedor': reporteCheck,
         'usuario': User.objects.get(id = current_user.id),
         'agregadoFavorito': reporteCheckFavorito,
+        'isComentario' : reporteIsCommented,
+        'isSuperUser' : isSuperUser
     }
 
     return render(request, 'proveedor/proveedor_detail.html', context)
@@ -100,17 +108,17 @@ def filtro(request,id):
     #query = request.GET.get('q')
     #if query:
     if id == '1':
-            results = proveedor.objects.all() # Muestra todos los proveedores por el momento, dado que no hay puntos
+            results = proveedor.objects.filter(calificacion__gte = 5)
     elif id == '2':
-            results = proveedor.objects.all() # Muestra todos los proveedores por el momento, dado que no hay puntos
+            results = proveedor.objects.filter(calificacion__gte = 7)
     elif id == '3':
-            results = proveedor.objects.all() # Muestra todos los proveedores por el momento, dado que no hay puntos
+            results = proveedor.objects.filter(calificacion = 10)
     elif id == '4':
-            results = proveedor.objects.filter(provincia__id = 1)
+            results = proveedor.objects.filter(provincia_id = 1)
     elif id == '5':
-            results = proveedor.objects.filter(Q(provincia_id = 3))
-    elif id == '6':
             results = proveedor.objects.filter(Q(provincia_id = 2))
+    elif id == '6':
+            results = proveedor.objects.filter(Q(provincia_id = 3))
     elif id == '7':
             results = proveedor.objects.filter(Q(provincia_id = 4))
     elif id == '8':
@@ -196,18 +204,12 @@ def envioCorreo(request, id = None):
     }
     return render(request, template, context)
 
-def calificarProveedor(request, id = None):
+
 def trafico(request):
     template = 'proveedor/trafico.html'
     return render(request, template)
 
-    if request.method == 'POST':
-        form = FormComment(request.POST)
-    form = FormComment()
-    context = {
-        'form': form,
-        'proveedor' : id
-    }
+
 def envíoTraficoIngresos(request):
     last_month = datetime.today() - timedelta(days=30)
     items = movimientos_pagina.objects.filter(FechaMovimiento__gte=last_month)
@@ -227,7 +229,18 @@ def envíoTraficoIngresos(request):
     template = 'proveedor/trafico_enviado.html'
     return render(request, template)
 
+
+
+def calificarProveedor(request, id=None):
+    if request.method == 'POST':
+        form = FormComment(request.POST)
+    form = FormComment()
+    context = {
+        'form': form,
+        'proveedor' : id
+    }
     return render(request, 'proveedor/comentarioForm.html', context)
+
 
 def formComentario(request):
     template = 'proveedor/comentarioForm.html'
@@ -246,7 +259,7 @@ def respuesta(request, id = None):
 
             Com = form.cleaned_data['Comentario']
 
-            comment = Comentario(Proveedor_id=id, Usuario_id=current_user.id, fecha=str(datetime.date.today()), texto = Com)
+            comment = Comentario(Proveedor_id=id, Usuario_id=current_user.id, fecha=str(date.today()), texto = Com)
 
             comment.save()
 
@@ -301,5 +314,22 @@ def respuesta(request, id = None):
     return render(request, 'proveedor/mensajeRespuesta.html', {'proveedor': id})
 
 
+@login_required
+def comment_approve(request, pk, id= None):
+    comment = get_object_or_404(Comentario, pk=pk)
+    comment.approve()
+    context = {
+        'proveedor' : id,
+        'aprobado' : True
+    }
+    return render(request, 'proveedor/respuestaComment.html', context)
 
-
+@login_required
+def comment_remove(request, pk, id=None):
+    comment = get_object_or_404(Comentario, pk=pk)
+    comment.delete()
+    context = {
+        'proveedor': id,
+        'aprobado': False
+    }
+    return render('proveedor/respuestaComment.html', context)

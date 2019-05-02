@@ -15,11 +15,12 @@ from .views import (
     envioCorreo,
     calificarProveedor,
     formComentario,
-    respuesta
-    envioCorreo,
+    respuesta,
     trafico,
     firstLogin,
-    envíoTraficoIngresos
+    envíoTraficoIngresos,
+    comment_approve,
+    comment_remove
 )
 from . import views
 from django.contrib import admin
@@ -31,7 +32,6 @@ urlpatterns = [
     path('', firstLogin, name = 'proveedor-proveedor'),
     path('home/<id>/', home, name = 'proveedor-proveedor-orden'),
     path('home/filtro/<id>/', filtro, name = 'proveedor-proveedor-filtro'),
-    path('proveedor/<id>/', proveedorView, name = 'proveedor-detail'),
     path('new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('proveedor/<id>/', proveedorVista, name = 'proveedor-detail'),
     path('new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
@@ -43,7 +43,9 @@ urlpatterns = [
     path('proveedor/envioCorreo/<id>/', envioCorreo, name = 'envioCorreo'),
     path('favoritos/', favoritosUsuario, name = 'favoritosUsuario'),
     path('comentario/<id>/', calificarProveedor ,name='calificar-prov'),
-    path('calificacion/<id>/', respuesta, name='resp')
+    path('calificacion/<id>/', respuesta, name='resp'),
     path('trafico/', trafico, name = 'trafico'),
     path('traficoEnviado/', envíoTraficoIngresos, name = 'traficoEnviado'),
+    path('comentario/<int:pk>/<id>/aprobar/', comment_approve, name='comment_approve'),
+    path('comentario/<int:pk>/<id>/borrar/', comment_remove, name='comment_remove'),
 ]

@@ -21,7 +21,7 @@
 
      <div class="row">
     {% for provee in proveedor %}
-       <div class="col-sm-4">
+       <div class="col-sm-6">
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
@@ -31,6 +31,7 @@
               <p class="article-content">Provincia: {{ provee.provincia.nombre }}</p>
             <p class="article-content">Telefono: {{ provee.telefono }}</p>
               <p class="article-content">Correo Electrónico: {{ provee.correo }}</p>
+              <p class="article-content content-section">Calificación: {{ provee.calificacion }}</p>
           </div>
         </article>
         </div>

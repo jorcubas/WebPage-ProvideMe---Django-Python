@@ -43,10 +43,14 @@ class Comentario(models.Model):
     Usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name="autor")
     fecha = models.DateField(("Date"), default=datetime.date.today)
     texto = models.TextField(max_length=150)
+    approved = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved = True
+        self.save()
 
     def __str__(self):
-        return "Comentario"
-
+        return self.texto
 
 
 class Rating(models.Model):
