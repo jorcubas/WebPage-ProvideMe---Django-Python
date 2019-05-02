@@ -34,3 +34,12 @@ class agregadoFavoritosProveedor(models.Model):
 
     def __str__(self):
         return self.Usuario.username
+
+class movimientos_pagina(models.Model):
+    UsuarioMovimiento = models.ForeignKey(User, on_delete = models.PROTECT)
+    TipoMovimiento = models.CharField(max_length=45)
+    FechaMovimiento = models.DateField()
+    HoraMovimiento = models.TimeField()
+
+    def __str__(self):
+        return self.movimentos_pagina.UsuarioMovimiento.username

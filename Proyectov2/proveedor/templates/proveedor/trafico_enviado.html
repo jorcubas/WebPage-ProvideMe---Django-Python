@@ -1,0 +1,17 @@
+{% extends "proveedor/base.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+          <h2>Reporte de Tráfico Enviado con Éxito</h2>
+      </div>
+    </article>
+    <div class="row container ">
+        <div class="class-md-8 content-section" >
+            <form method="GET" action="{% url 'trafico' %}">
+                <button class="btn btn-success" type="submit">
+                    Regresar
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
