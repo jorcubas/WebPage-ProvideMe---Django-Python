@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'Proyectov2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Proyecto2',
+        'NAME': 'Proyecto3',
         'USER': 'postgres',
-        'PASSWORD': 'Hola12345',
+        'PASSWORD': 'cacada',
         'HOST': 'localhost',
         'PORT': '',
     }

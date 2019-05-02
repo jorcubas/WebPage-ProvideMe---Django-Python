@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import proveedor,provincia, reporteProveedor, User, agregadoFavoritosProveedor
+from .models import proveedor, provincia, reporteProveedor, User, agregadoFavoritosProveedor, Comentario, Rating, ratings_prov
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
@@ -7,7 +7,9 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
-
+from .forms import FormComment
+from django import forms
+import datetime
 
 @login_required
 def home(request, id= None):
@@ -16,6 +18,7 @@ def home(request, id= None):
         ordering = proveedor.objects.select_related('provincia').order_by('nombre')
     else:
         ordering = proveedor.objects.select_related('provincia')
+
     context = {
         'proveedor' : ordering,
         'usuario': User.objects.get(id = current_user.id),
@@ -35,18 +38,16 @@ class proveedorListView(LoginRequiredMixin, ListView):
 #class proveedorDetailView(DetailView):
 #    model = proveedor
 
-def proveedorView(request, id = None):
+def proveedorView(request, id):
     current_user = request.user
     try:
         reporteCheck = reporteProveedor.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
     except reporteProveedor.DoesNotExist:
         reporteCheck = 'sinReportar'
-
     try:
         reporteCheckFavorito = agregadoFavoritosProveedor.objects.get(Proveedor__id=id, Usuario__id=current_user.id)
     except agregadoFavoritosProveedor.DoesNotExist:
         reporteCheckFavorito = 'sinFavorito'
-
     context = {
         'proveedor' : proveedor.objects.get(id = id),
         'reporteProveedor': reporteCheck,
@@ -174,5 +175,85 @@ def envioCorreo(request, id = None):
     }
     return render(request, template, context)
 
+def calificarProveedor(request, id = None):
+
+    if request.method == 'POST':
+        form = FormComment(request.POST)
+    form = FormComment()
+    context = {
+        'form': form,
+        'proveedor' : id
+    }
+
+    return render(request, 'proveedor/comentarioForm.html', context)
+
+def formComentario(request):
+    template = 'proveedor/comentarioForm.html'
+    form = FormComment()
+    {'form': form}
+    return render(request, template)
+
+def respuesta(request, id = None):
+    if request.method == 'POST':
+
+        form = FormComment(request.POST)
+        if form.is_valid():
+
+            current_user = request.user
+            usuarioObj = User.objects.get(id=current_user.id)
+
+            Com = form.cleaned_data['Comentario']
+
+            comment = Comentario(Proveedor_id=id, Usuario_id=current_user.id, fecha=str(datetime.date.today()), texto = Com)
+
+            comment.save()
+
+            Calidad = form.cleaned_data['Calidad']
+            Precio = form.cleaned_data['Precio']
+            Servicio = form.cleaned_data['Servicio']
+            Trato = form.cleaned_data['Trato']
+
+            rat = Rating(Proveedor_id=id, Usuario_id=current_user.id, promedio=(int(Calidad)+int(Precio)+int(Servicio)+int(Trato))/4)
+
+            rat.save()
+
+            current_rating = Rating.objects.get(Proveedor_id = id, Usuario_id=current_user.id)
+            current_comment =  Comentario.objects.get(Proveedor_id=id, Usuario_id=current_user.id)
 
 
+
+            rats_prov = ratings_prov(rating_id=current_rating.id, comentario_id=current_comment.id, tipo='Calidad',
+                                     calificacion=Calidad)
+
+            rats_prov.save()
+
+            rats_prov = ratings_prov(rating_id=current_rating.id, comentario_id=current_comment.id, tipo='Precio',
+                                     calificacion=Precio)
+
+            rats_prov.save()
+
+            rats_prov = ratings_prov(rating_id=current_rating.id, comentario_id=current_comment.id, tipo='Servicio',
+                                     calificacion=Servicio)
+
+            rats_prov.save()
+
+            rats_prov = ratings_prov(rating_id=current_rating.id, comentario_id=current_comment.id, tipo='Trato',
+                                     calificacion=Trato)
+
+            rats_prov.save()
+
+            prom_rat = Rating.objects.all().filter(Proveedor_id=id)
+            suma = 0
+            cont = 0
+
+            for item in prom_rat:
+                suma += item.promedio
+                cont += 1
+
+            newProv= proveedor.objects.get(id=id)
+            newProv.calificacion = suma/cont
+            newProv.save()
+
+
+
+    return render(request, 'proveedor/mensajeRespuesta.html', {'proveedor': id})

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib import admin
 from django.urls import reverse
+import datetime
 
 
 class provincia(models.Model):
@@ -14,6 +16,7 @@ class proveedor(models.Model):
     correo = models.CharField(max_length=45)
     telefono = models.IntegerField()
     provincia = models.ForeignKey(provincia, on_delete=models.CASCADE)
+    calificacion = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.nombre
@@ -34,3 +37,26 @@ class agregadoFavoritosProveedor(models.Model):
 
     def __str__(self):
         return self.Usuario.username
+
+class Comentario(models.Model):
+    Proveedor = models.ForeignKey(proveedor, on_delete = models.CASCADE, related_name="comments")
+    Usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name="autor")
+    fecha = models.DateField(("Date"), default=datetime.date.today)
+    texto = models.TextField(max_length=150)
+
+    def __str__(self):
+        return "Comentario"
+
+
+
+class Rating(models.Model):
+    Proveedor = models.ForeignKey(proveedor, on_delete=models.CASCADE, related_name='calif')
+    Usuario =  models.ForeignKey(User, on_delete=models.PROTECT, related_name='author')
+    promedio = models.IntegerField()
+
+
+class ratings_prov(models.Model):
+    rating = models.ForeignKey(Rating, on_delete=models.CASCADE)
+    comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE, related_name="ratingComment")
+    tipo = models.CharField(max_length=25)
+    calificacion = models.IntegerField()

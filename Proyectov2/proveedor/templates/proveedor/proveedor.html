@@ -1,3 +1,4 @@
+
 {% extends "proveedor/base.html" %}
 {% block content %}
     <div class="row container ">
@@ -5,7 +6,7 @@
             <form method="GET" action="{% url 'search' %}">
                 <input name="q" value="{{ request.GET.q }}" placeholder="Búsqueda..">
                 <button class="btn btn-success" type="submit">
-                    Buscar
+                    <span class="glyphicon glyphicon-search"></span> Buscar
                 </button>
             </form>
         </div>
@@ -18,8 +19,9 @@
         </div>
     </div>
 
-
+     <div class="row">
     {% for provee in proveedor %}
+       <div class="col-sm-4">
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
@@ -31,8 +33,9 @@
               <p class="article-content">Correo Electrónico: {{ provee.correo }}</p>
           </div>
         </article>
+        </div>
     {% endfor %}
-
+    </div>
     {% if is_paginated %}
 
       {% if page_obj.has_previous %}

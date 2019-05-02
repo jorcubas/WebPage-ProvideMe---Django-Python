@@ -122,3 +122,7 @@ ul, #myUL {
 .active {
   display: block;
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
