@@ -17,21 +17,26 @@
             </form>
         </div>
     </div>
+    <h1>Lista de Favoritos</h1>
 
+    {% if favorito == 'sinFavoritos' %}
+        <h3>Sin Favoritos</h3>
 
-    {% for provee in proveedor %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ provee.nombre }}</a>
-            </div>
-            <h2><a class="article-title" href="{% url 'proveedor-detail' provee.id %}">{{ provee.nombre }}</a></h2>
-              <p class="article-content">Provincia: {{ provee.provincia.nombre }}</p>
-            <p class="article-content">Telefono: {{ provee.telefono }}</p>
-              <p class="article-content">Correo Electrónico: {{ provee.correo }}</p>
-          </div>
-        </article>
-    {% endfor %}
+    {% else %}
+        {% for provee in favoritos %}
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ provee.Proveedor.nombre }}</a>
+                </div>
+                <h2><a class="article-title" href="{% url 'proveedor-detail' provee.Proveedor.id %}">{{ provee.Proveedor.nombre }}</a></h2>
+                  <p class="article-content">Provincia: {{ provee.Proveedor.provincia.nombre }}</p>
+                <p class="article-content">Telefono: {{ provee.Proveedor.telefono }}</p>
+                  <p class="article-content">Correo Electrónico: {{ provee.Proveedor.correo }}</p>
+              </div>
+            </article>
+        {% endfor %}
+    {% endif %}
 
     {% if is_paginated %}
 

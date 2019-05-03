@@ -19,5 +19,10 @@
                 ¿No Tienes Cuenta? <a class="ml-2" href="{% url 'registro' %}"> Registrate Ahora!</a>
             </small>
         </div>
+            <form method="GET" action="{% url 'password_reset' %}">
+            <button class="btn btn-link" type="submit">
+                Si Olvidaste tu Contraseña, Haz Click Aqui
+            </button>
+        </form>
     </div>
 {% endblock content %}

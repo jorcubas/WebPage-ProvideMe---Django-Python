@@ -20,7 +20,8 @@ from .views import (
     firstLogin,
     envíoTraficoIngresos,
     comment_approve,
-    comment_remove
+    comment_remove,
+    muestraFavoritosUsuario
 )
 from . import views
 from django.contrib import admin
@@ -34,14 +35,13 @@ urlpatterns = [
     path('home/filtro/<id>/', filtro, name = 'proveedor-proveedor-filtro'),
     path('new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('proveedor/<id>/', proveedorVista, name = 'proveedor-detail'),
-    path('new/', proveedorCreateView.as_view(), name = 'proveedor-create'),
     path('results/', search, name="search"),
     path('proveedor/reporteProveedor/<id>/', reportes, name = 'reportes'),
     path('proveedor/reportadoProveedor/<id>/', reportadoProveedor, name = 'reportadoProveedor'),
     path('proveedor/agregadoFavorito/<id>/', agregadoFavorito, name = 'agregadoFavorito'),
     path('proveedor/eliminadoFavorito/<id>/', eliminadoFavorito, name = 'eliminadoFavorito'),
     path('proveedor/envioCorreo/<id>/', envioCorreo, name = 'envioCorreo'),
-    path('favoritos/', favoritosUsuario, name = 'favoritosUsuario'),
+    path('favoritos/', muestraFavoritosUsuario, name = 'favoritosUsuario'),
     path('comentario/<id>/', calificarProveedor ,name='calificar-prov'),
     path('calificacion/<id>/', respuesta, name='resp'),
     path('trafico/', trafico, name = 'trafico'),

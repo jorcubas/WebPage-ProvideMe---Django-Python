@@ -333,3 +333,15 @@ def comment_remove(request, pk, id=None):
         'aprobado': False
     }
     return render('proveedor/respuestaComment.html', context)
+
+def muestraFavoritosUsuario(request):
+    template = 'proveedor/favoritosUsuario.html'
+    current_user = request.user
+    try:
+        favoritos = agregadoFavoritosProveedor.objects.filter(Usuario__id=current_user.id)
+    except reporteProveedor.DoesNotExist:
+        favoritos = 'sinFavoritos'
+    context = {
+        'favoritos' : favoritos,
+    }
+    return render(request, template, context)

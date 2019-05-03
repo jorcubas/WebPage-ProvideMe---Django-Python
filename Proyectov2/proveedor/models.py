@@ -22,7 +22,7 @@ class proveedor(models.Model):
         return self.nombre
 
     def get_absolute_url(self):
-        return reverse('proveedor-detail', kwargs={'pk':self.pk})
+        return reverse('proveedor-detail', kwargs={'id':self.pk})
 
 class reporteProveedor(models.Model):
     Proveedor = models.ForeignKey(proveedor, on_delete = models.PROTECT)
