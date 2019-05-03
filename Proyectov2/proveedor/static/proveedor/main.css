@@ -126,3 +126,84 @@ ul, #myUL {
 .comment {
     margin: 20px 0px 20px 20px;
 }
+
+.header {
+      background-image: url('../image/seguridad.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      margin-bottom: 30px;
+      min-height: 800px;
+      min-width: 800px;
+      padding: 30px;
+    }
+
+.overlay {
+      position: absolute;
+      min-height: 100%;
+      min-width: 100%;
+      left: 0;
+      top: 0;
+      transition: .5s ease;
+      background-color: rgba(45, 42, 133, 0.7);
+      overflow:hidden;
+    }
+
+.full {
+  background: url(https://raw.githubusercontent.com/solodev/transparent-overlay/master/overlay-img-1.jpg) 0 0 no-repeat;
+  min-height: 634px;
+}
+.half {
+  background: url(https://raw.githubusercontent.com/solodev/transparent-overlay/master/overlay-img-2.jpg) 0 0 no-repeat;
+  min-height: 301px;
+  margin-bottom: 30px;
+}
+.half2 {
+  background: url(https://raw.githubusercontent.com/solodev/transparent-overlay/master/overlay-img-3.jpg) 0 0 no-repeat;
+  min-height: 301px;
+}
+.full, .half, .half2 {
+  background-size: cover;
+  position: relative;
+}
+
+.full:hover .overlay-effect, .half:hover .overlay-effect, .half2:hover .overlay-effect {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.overlay-effect {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(45, 42, 133, 0.7);
+  overflow:hidden;
+}
+
+.full a,
+.half a,
+.half2 a {
+  color: #fff;
+}
+
+.full h3,
+.half h3,
+.half2 h3 {
+  padding: 15px 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .full, .half, .half2 {margin-bottom: 10px;}
+}
+
+.description {
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+}
