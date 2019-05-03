@@ -12,7 +12,7 @@ class FormCrearProveedor(forms.ModelForm):
 
 class FormComment(forms.Form):
     Calidad = forms.ChoiceField(label="Calificación de Calidad", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
-    Precio = forms.ChoiceField(label="Calificación de Calidad", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
-    Servicio = forms.ChoiceField(label="Calificación de Calidad", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
-    Trato = forms.ChoiceField(label="Calificación de Calidad", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
+    Precio = forms.ChoiceField(label="Calificación de Precio", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
+    Servicio = forms.ChoiceField(label="Calificación de Servicio", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
+    Trato = forms.ChoiceField(label="Calificación de Trato", choices=[(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10)])
     Comentario = forms.CharField(label="Ingrese un comentario sobre el proveedor", widget=forms.Textarea)
